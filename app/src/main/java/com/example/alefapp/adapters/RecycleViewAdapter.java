@@ -30,7 +30,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         this(null);
     }
 
-    public RecycleViewAdapter(ArrayList<String> urlsOfImages){
+    public RecycleViewAdapter(ArrayList<String> urlsOfImages) {
         super();
         if(urlsOfImages == null){
             urlsOfImages = new ArrayList<String>();
@@ -38,7 +38,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         this.urlsOfImages = urlsOfImages;
     }
 
-    public void setOnUserClickListener(OnUserClickListener onUserClickListener){
+    public void setOnUserClickListener(OnUserClickListener onUserClickListener) {
         this.onUserClickListener = onUserClickListener;
     }
 
@@ -76,7 +76,6 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
     @Override
     public int getItemCount() {
-        Log.d("URLSALEF", "onBindViewHolder: " + urlsOfImages.size());
         return urlsOfImages.size();
     }
 
@@ -97,7 +96,6 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                 @Override
                 public void onClick(View view) {
                     int position = getAdapterPosition();
-                    Log.d("ALEF222", "onClick: "+ enableListener);
                     if(position != RecyclerView.NO_POSITION && enableListener){
                         onUserClickListener.onUserClick(position);
                     }

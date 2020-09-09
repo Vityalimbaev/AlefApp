@@ -49,7 +49,6 @@ public class ListImagesFragment extends Fragment implements SwipeRefreshLayout.O
             @Override
             public void run() {
                 swipeRefreshLayout.setRefreshing(true);
-                // Fetching data from server
                 getURlsFromServer();
             }
         });
@@ -77,9 +76,6 @@ public class ListImagesFragment extends Fragment implements SwipeRefreshLayout.O
         recycleViewAdapter.setOnUserClickListener(new RecycleViewAdapter.OnUserClickListener() {
             @Override
             public void onUserClick(int position) {
-                if (clickImageListener == null) {
-                    Log.d("ALEF", "onUserClick: " + "lol null");
-                }
                 clickImageListener.onClickImage(recycleViewAdapter.getElements().get(position));
             }
         });
@@ -99,7 +95,6 @@ public class ListImagesFragment extends Fragment implements SwipeRefreshLayout.O
             @Override
             public void onFailure(Call<List<String>> call, Throwable t) {
                 swipeRefreshLayout.setRefreshing(false);
-                Log.d("RequestFail", "onFailure: " + t.getMessage());
             }
         });
     }
